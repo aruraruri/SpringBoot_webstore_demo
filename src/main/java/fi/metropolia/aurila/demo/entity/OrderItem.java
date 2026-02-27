@@ -2,14 +2,13 @@ package fi.metropolia.aurila.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name="orderitems")
-@IdClass(OrderItem.class)
+@IdClass(OrderItemId.class)
 public class OrderItem {
+
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
@@ -17,7 +16,7 @@ public class OrderItem {
     private Order order;
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
@@ -27,9 +26,12 @@ public class OrderItem {
     @Column(name="unit_price")
     private BigDecimal price;
 
-    // getters setters
+    // Important: Add this method to help with JSON serialization/deserialization
+    public Integer getOrderId() {
+        return order != null ? order.getId() : null;
+    }
 
-
+    // getters and setters
     public Order getOrder() {
         return order;
     }

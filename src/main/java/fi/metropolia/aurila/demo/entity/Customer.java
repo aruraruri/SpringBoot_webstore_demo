@@ -14,7 +14,7 @@ public class Customer {
     private String firstName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private java.util.List<Order> orders;
 
     // getters setters

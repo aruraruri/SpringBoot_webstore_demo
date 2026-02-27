@@ -18,7 +18,7 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date orderDate;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems;
 
     public List<OrderItem> getOrderItems() {
@@ -29,6 +29,15 @@ public class Order {
 
     public int getId() {
         return id;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+        if (orderItems != null) {
+            for (OrderItem item : orderItems) {
+                item.setOrder(this);
+            }
+        }
     }
 
     public Customer getCustomer() {
