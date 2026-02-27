@@ -1,5 +1,6 @@
 package fi.metropolia.aurila.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -7,24 +8,27 @@ import java.util.List;
 
 @Entity
 @Table(name="orderitems")
+@IdClass(OrderItem.class)
 public class OrderItem {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
+    @JsonIgnore
     private Order order;
-    @ManyToOne
+
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @Column(name="quantity")
     private Integer quantity;
+
     @Column(name="unit_price")
     private BigDecimal price;
 
     // getters setters
-    public int getId() {
-        return id;
-    }
+
 
     public Order getOrder() {
         return order;

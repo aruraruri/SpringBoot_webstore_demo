@@ -1,5 +1,6 @@
 package fi.metropolia.aurila.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,10 @@ public class Customer {
     @Column(name="first_name")
     private String firstName;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private java.util.List<Order> orders;
+
     // getters setters
     public int getId() {
         return id;
@@ -23,5 +28,9 @@ public class Customer {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public Object getOrders() {
+        return orders;
     }
 }
