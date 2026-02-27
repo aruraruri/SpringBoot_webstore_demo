@@ -2,6 +2,8 @@ package fi.metropolia.aurila.demo.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="orders")
 public class Order {
@@ -15,6 +17,13 @@ public class Order {
 
     @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date orderDate;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems;
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
 
     // getters setters
 
