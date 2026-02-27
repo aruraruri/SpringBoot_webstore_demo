@@ -18,6 +18,9 @@ public class Product {
     @Column(name="price")
     private BigDecimal price;
 
+    @OneToMany(mappedBy = "product")
+    private java.util.List<OrderItem> orderItems;
+
     // getters setters
     public int getId() {
         return id;
@@ -31,5 +34,15 @@ public class Product {
         return price;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

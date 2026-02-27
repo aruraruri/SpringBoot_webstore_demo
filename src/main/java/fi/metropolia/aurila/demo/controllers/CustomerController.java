@@ -20,6 +20,12 @@ public class CustomerController {
         return repository.findById(id).map(customer -> ResponseEntity.ok(customer)).orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/{id}/orders")
+    public ResponseEntity<?> getCustomerOrders(@PathVariable final Integer id) {
+        return repository.findById(id).map(customer -> ResponseEntity.ok(customer.getOrders())).orElse(ResponseEntity.notFound().build());
+    }
+
+
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody final Customer customer) {
         return ResponseEntity.ok(repository.save(customer));
