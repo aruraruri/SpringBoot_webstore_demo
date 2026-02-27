@@ -15,4 +15,28 @@ public class Order {
 
     @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date orderDate;
+
+    // getters setters
+
+    public int getId() {
+        return id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public java.util.Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(java.util.Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+
 }
