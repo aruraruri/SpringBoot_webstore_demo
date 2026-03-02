@@ -1,9 +1,12 @@
-package fi.metropolia.aurila.demo.controllers;
+package fi.metropolia.aurila.demo.controller;
 
 import fi.metropolia.aurila.demo.entity.Customer;
-import fi.metropolia.aurila.demo.repositories.CustomerRepository;
+import fi.metropolia.aurila.demo.repository.CustomerRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+/*ADD A SERVICE LAYER TO SIMPLIFY CONTROLLERS.
+SERVICE LAYER SHOULD USE DATA TRANSFER OBJECTS (DTO) TO PASS AROUND THE GOTTEN DATA FROM DB*/
 
 @RestController
 @RequestMapping("/customer")

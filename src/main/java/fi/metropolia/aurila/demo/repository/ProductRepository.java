@@ -1,4 +1,4 @@
-package fi.metropolia.aurila.demo.repositories;
+package fi.metropolia.aurila.demo.repository;
 
 import fi.metropolia.aurila.demo.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

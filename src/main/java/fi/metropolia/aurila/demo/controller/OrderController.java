@@ -1,12 +1,11 @@
-package fi.metropolia.aurila.demo.controllers;
+package fi.metropolia.aurila.demo.controller;
 
 import fi.metropolia.aurila.demo.entity.Order;
 import fi.metropolia.aurila.demo.entity.OrderItem;
 import fi.metropolia.aurila.demo.entity.Product;
-import fi.metropolia.aurila.demo.repositories.OrderRepository;
-import fi.metropolia.aurila.demo.repositories.ProductRepository;
+import fi.metropolia.aurila.demo.repository.OrderRepository;
+import fi.metropolia.aurila.demo.repository.ProductRepository;
 import jakarta.transaction.Transactional;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package fi.metropolia.aurila.demo.controllers;
+package fi.metropolia.aurila.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

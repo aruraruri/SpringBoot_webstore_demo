@@ -1,8 +1,7 @@
-package fi.metropolia.aurila.demo.controllers;
+package fi.metropolia.aurila.demo.controller;
 
-import fi.metropolia.aurila.demo.entity.Order;
 import fi.metropolia.aurila.demo.entity.Product;
-import fi.metropolia.aurila.demo.repositories.ProductRepository;
+import fi.metropolia.aurila.demo.repository.ProductRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
