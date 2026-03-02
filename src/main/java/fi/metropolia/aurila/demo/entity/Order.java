@@ -13,7 +13,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="customer_id")
-    private Customer customer;
+    private BasicCustomer basicCustomer;
 
     @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date orderDate;
@@ -40,12 +40,12 @@ public class Order {
         }
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public BasicCustomer getCustomer() {
+        return basicCustomer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(BasicCustomer basicCustomer) {
+        this.basicCustomer = basicCustomer;
     }
 
     public java.util.Date getOrderDate() {
