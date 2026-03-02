@@ -3,6 +3,8 @@ package fi.metropolia.aurila.demo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="customers")
 public class Customer {
@@ -15,8 +17,7 @@ public class Customer {
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private java.util.List<Order> orders;
-
+    private List<Order> orders;
 
     // getters setters
     public int getId() {
