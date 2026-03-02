@@ -17,6 +17,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private java.util.List<Order> orders;
 
+
     // getters setters
     public int getId() {
         return id;

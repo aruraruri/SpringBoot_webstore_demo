@@ -13,9 +13,9 @@ public class ProductCategory {
 
     @ManyToMany
     @JoinTable(
-            name = "product_category_mapping",  // Name of the join table
-            joinColumns = @JoinColumn(name = "category_id"),  // Foreign key to ProductCategory
-            inverseJoinColumns = @JoinColumn(name = "product_id")  // Foreign key to Product
+            name = "product_category_mapping",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<Product> products;
 
