@@ -3,6 +3,7 @@ package fi.metropolia.aurila.demo.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name="products")
@@ -17,9 +18,14 @@ public class Product {
     private String description;
     @Column(name="price")
     private BigDecimal price;
+    @Column(name="category_id")
+    private Integer categoryId;
+
+    @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
+    private List<ProductCategory> categories;
 
     @OneToMany(mappedBy = "product")
-    private java.util.List<OrderItem> orderItems;
+    private List<OrderItem> orderItems;
 
     // getters setters
     public int getId() {
@@ -44,5 +50,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getCategory() {
+        return categoryId;
     }
 }
