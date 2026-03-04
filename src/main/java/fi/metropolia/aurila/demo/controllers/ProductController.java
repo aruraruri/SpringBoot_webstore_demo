@@ -33,9 +33,5 @@ public class ProductController {
         return ResponseEntity.ok(productRepository.findAll());
     }
 
-    // get all products by category id
-    @GetMapping("/category/{categoryId}")
-    public List<Product> getProductsByCategoryId(@PathVariable final Integer categoryId) {
-        return productRepository.findAll().stream().filter(product -> product.getCategory() != null && product.getCategory().equals(categoryId)).toList();
-    }
+
 }

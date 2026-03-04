@@ -11,7 +11,7 @@ public class ProductCategory {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(
             name = "product_category_mapping",
             joinColumns = @JoinColumn(name = "category_id"),
@@ -43,5 +43,9 @@ public class ProductCategory {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 }

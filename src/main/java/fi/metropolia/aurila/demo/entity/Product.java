@@ -56,7 +56,11 @@ public class Product {
         return description;
     }
 
-    public Integer getCategory() {
+    public Integer getCategoryId() {
         return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }
