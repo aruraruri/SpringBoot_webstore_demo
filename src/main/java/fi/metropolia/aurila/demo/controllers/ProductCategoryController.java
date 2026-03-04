@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/productcategory")
+@RequestMapping("api/productcategory")
 public class ProductCategoryController {
 
     private final ProductCategoryRepository productCategoryRepositoryRepositoryREPOSITORY;
