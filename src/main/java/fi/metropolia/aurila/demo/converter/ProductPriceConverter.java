@@ -6,7 +6,7 @@ import jakarta.persistence.Converter;
 
 import java.math.BigDecimal;
 
-@Converter(autoApply = false)
+@Converter()
 public class ProductPriceConverter implements AttributeConverter<Double, BigDecimal> {
 
     @Override

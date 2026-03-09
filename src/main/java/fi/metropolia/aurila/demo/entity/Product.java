@@ -9,7 +9,6 @@ import java.util.List;
 
 @Entity
 @Table(name="products")
-@EntityListeners(CustomerListener.class)
 public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,9 +20,13 @@ public class Product {
     private String description;
     @Column(name="price")
     @Convert(converter = ProductPriceConverter.class)
-    private BigDecimal price;
+    private Double price;
+    @Column(name="stock_quantity")
+    private Integer stockQuantity;
     @Column(name="category_id")
     private Integer categoryId;
+    @Column(name="supplier_id")
+    private Integer supplierId;
 
     @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
     private List<ProductCategory> categories;
@@ -40,7 +43,7 @@ public class Product {
         return name;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
@@ -52,7 +55,7 @@ public class Product {
         this.description = description;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -66,5 +69,29 @@ public class Product {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public Integer getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(Integer supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public List<ProductCategory> getCategories() {
+        return categories;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setStockQuantity(Integer stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
+
+    public Integer getStockQuantity() {
+        return stockQuantity;
     }
 }
