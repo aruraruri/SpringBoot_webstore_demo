@@ -1,5 +1,7 @@
 package fi.metropolia.aurila.demo.entity;
 
+import fi.metropolia.aurila.demo.converter.ProductPriceConverter;
+import fi.metropolia.aurila.demo.entity_listener.CustomerListener;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -7,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="products")
+@EntityListeners(CustomerListener.class)
 public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,6 +20,7 @@ public class Product {
     @Column(name="description")
     private String description;
     @Column(name="price")
+    @Convert(converter = ProductPriceConverter.class)
     private BigDecimal price;
     @Column(name="category_id")
     private Integer categoryId;
