@@ -23,7 +23,7 @@ Order endpoints allow you to retrieve order information and create new orders.
 
 ### View Orders (/api/vieworders)
 
-This endpoint provides a read-only view of orders, allowing customers and store managers to query orders based on various criteria such as status, customer last name, and date range.
+This endpoint provides a read-only view of orders (implemented with a database view), allowing customers and store managers to query orders based on various criteria such as status, customer last name, and date range.
 
 | Method | Endpoint                               | Description                                                     |
 | ------ | -------------------------------------- | --------------------------------------------------------------- |
